@@ -19,6 +19,7 @@ function capturarFoto(){
 	alert('Estoy en el capturarFoto');
 	navigator.camera.getPicture(onPhotoDataSuccess, mostrarError, { quality: 50, destinationType: formatoValor.DATA_URL });
 	alert('Igual he hecho lo de capturarFoto');
+    createNewFileEntry();
 }
 
 function onPhotoDataSuccess(datosImagen) {
@@ -37,7 +38,25 @@ function onPhotoDataSuccess(datosImagen) {
     alert('Igual he hecho lo de onPhotoDataSuccess');
 }
 
+function createNewFileEntry(imgUri) {
+    alert('Estoy en el createNewFileEntry');
+    //Guardar en la carpeta por defecto
+    window.resolveLocalFileSystemURL(cordova.file.cacheDirectory, function success(dirEntry) {
+ 
+        // JPEG file 
+        dirEntry.getFile("tempFile.jpeg", { create: true, exclusive: false }, function (fileEntry) {
+ 
+            // Do something with it, like write to it, upload it, etc. 
+            // writeFile(fileEntry, imgUri); 
+            console.log("Archivo guardado en: "+fileEntry.fullPath);
+            // displayFileData(fileEntry.fullPath, "File copied to"); 
+ 
+        }, mostrarError('Fallo al crear el archivo.'));
+    }, mostrarError('Fallo al encontrar el directorio.'));
+    alert('Igual he hecho lo de createNewFileEntry');
+
 /** Mostrar Error **/
 function mostrarError(mensaje) {
+
     alert('Error: '+mensaje);
 }
