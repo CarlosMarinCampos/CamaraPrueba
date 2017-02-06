@@ -22,19 +22,19 @@ function capturarFoto(){
     createNewFileEntry();
 }
 
-function onPhotoDataSuccess(datosImagen) {
+function onPhotoDataSuccess(imageData) {
 	alert('Estoy en el onPhotoDataSuccess');
 	//console.log(datosImagen); //Ver los datos de la imagen codificados en base64
 
     //Coger el mango de la foto
-    var fotoPequena=document.getElementById('smallImage');
+    var smallImage=document.getElementById('smallImage');
 
     //Mostrar datos de la imagen
-    fotoPequena.style.display='block';
+    smallImage.style.display='block';
 
     //Mostrar la foto capturada
     //Las reglas CSS de la linea se usan para redimensionar la imagen
-    fotoPequena.src="data:image/jpeg;base64,"+datosImagen;
+    smallImage.src="data:image/jpeg;base64,"+imageData;
     alert('Igual he hecho lo de onPhotoDataSuccess');
 }
 
