@@ -41,7 +41,8 @@ function onPhotoDataSuccess(datosImagen) {
 function createNewFileEntry(imgUri) {
     alert('Estoy en el createNewFileEntry');
     //Guardar en la carpeta por defecto
-    window.resolveLocalFileSystemURL(cordova.file.cacheDirectory, function success(dirEntry) {
+    //window.resolveLocalFileSystemURL(cordova.file.cacheDirectory, function success(dirEntry) {
+    window.resolveLocalFileSystemURL(destinoImagen, function success(dirEntry) {
  
         // JPEG file 
         dirEntry.getFile("tempFile.jpeg", { create: true, exclusive: false }, function (fileEntry) {
