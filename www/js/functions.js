@@ -1,8 +1,10 @@
 var destinoImagen; //Destino en el cual se guarda la imagen
 var formatoValor; //Establece el formato del valor devuelto
 
-//Cargar las librerias API del dispositivo
+function onBodyLoad(){
+    //Cargar las librerias API del dispositivo
 document.addEventListener("deviceready",onDeviceReady,false);
+}
 
 //Cuando las API están disponibles, coger los valores
 function onDeviceReady() {
