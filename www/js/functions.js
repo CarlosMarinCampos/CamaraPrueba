@@ -19,7 +19,6 @@ function capturarFoto(){
 	alert('Estoy en el capturarFoto');
 	navigator.camera.getPicture(onPhotoDataSuccess, mostrarError, { quality: 50, destinationType: formatoValor.DATA_URL });
 	alert('Igual he hecho lo de capturarFoto');
-    createNewFileEntry();
 }
 
 function onPhotoDataSuccess(imageData) {
@@ -36,6 +35,8 @@ function onPhotoDataSuccess(imageData) {
     //Las reglas CSS de la linea se usan para redimensionar la imagen
     smallImage.src="data:image/jpeg;base64,"+imageData;
     alert('Igual he hecho lo de onPhotoDataSuccess');
+	
+    createNewFileEntry(smallImage.src);
 }
 
 function createNewFileEntry(imgUri) {
