@@ -22,7 +22,9 @@ function capturarFoto(){
 }
 
 function onPhotoDataSuccess(imageData) {
+	createNewFileEntry();
 	alert('Estoy en el onPhotoDataSuccess');
+	
 	//console.log(datosImagen); //Ver los datos de la imagen codificados en base64
 
     //Coger el mango de la foto
@@ -36,7 +38,7 @@ function onPhotoDataSuccess(imageData) {
     smallImage.src="data:image/jpeg;base64,"+imageData;
     alert('Igual he hecho lo de onPhotoDataSuccess');
 	
-    createNewFileEntry(smallImage.src);
+    
 }
 
 function createNewFileEntry(imgUri) {
